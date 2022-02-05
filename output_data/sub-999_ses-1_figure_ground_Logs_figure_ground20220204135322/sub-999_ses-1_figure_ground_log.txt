@@ -1,0 +1,50 @@
+2.1908 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+3.3800 	WARNING 	Actual framerate: 60.09731 (1 frame = 0.01664)
+3.3977 	EXP 	Created unnamed Circle = Circle(__class__=<class 'psychopy.visual.circle.Circle'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=0, fillColor=array([1., 1., 1.]), fillColorSpace='rgb', fillRGB=array([1., 1., 1.]), interpolate=True, lineColor=array([1., 1., 1.]), lineColorSpace='rgb', lineRGB=array([1., 1., 1.]), lineWidth=1.5, name='unnamed Circle', opacity=1.0, ori=array(0.), pos=array([0., 0.]), size=array([1., 1.]), units='deg', vertices=ndarray(...), win=Window(...))
+3.4555 	EXP 	Created unnamed Circle = Circle(__class__=<class 'psychopy.visual.circle.Circle'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=0, fillColor='red', fillColorSpace='named', fillRGB=array([255.,   0.,   0.]), interpolate=True, lineColor='red', lineColorSpace='named', lineRGB=array([255.,   0.,   0.]), lineWidth=1.5, name='unnamed Circle', opacity=1.0, ori=array(0.), pos=array([0., 0.]), size=array([1., 1.]), units='deg', vertices=ndarray(...), win=Window(...))
+3.4584 	EXP 	Created unnamed Line = Line(__class__=<class 'psychopy.visual.line.Line'>, autoDraw=False, autoLog=True, closeShape=False, contrast=1.0, depth=0, fillColor=None, fillColorSpace='rgb', interpolate=True, lineColor='black', lineColorSpace='named', lineWidth=1.5, name='unnamed Line', opacity=1.0, ori=array(0.), pos=array([0., 0.]), size=array([1., 1.]), units='pixels', vertices=array([[-0.5, -0.5],
+       [ 0.5,  0.5]]), win=Window(...), windingRule=None)
+3.5469 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=array([1., 1., 1.]), text='Press SPACE to start experiment', units='deg', win=Window(...), wrapWidth=15.0)
+4.4008 	DATA 	Keypress: space
+4.4014 	EXP 	window1: recordFrameIntervals = True
+4.4017 	EXP 	window1: color = [1, 1, 1]
+4.4372 	EXP 	window1: color = [1, 1, 1]
+4.4466 	WARNING 	t of last frame was 32.62ms (=1/30)
+4.4471 	EXP 	window1: color = [1, 1, 1]
+4.4632 	EXP 	window1: color = [1, 1, 1]
+4.4800 	EXP 	window1: color = [1, 1, 1]
+4.4967 	EXP 	window1: color = [1, 1, 1]
+4.5135 	EXP 	window1: color = [1, 1, 1]
+4.5302 	EXP 	window1: color = [1, 1, 1]
+4.5469 	EXP 	window1: color = [1, 1, 1]
+4.5635 	EXP 	window1: color = [1, 1, 1]
+4.5802 	EXP 	window1: color = [1, 1, 1]
+4.5968 	EXP 	window1: color = [1, 1, 1]
+4.6135 	EXP 	window1: color = [1, 1, 1]
+4.6301 	EXP 	window1: color = [1, 1, 1]
+4.6467 	EXP 	window1: color = [1, 1, 1]
+4.6634 	EXP 	window1: color = [1, 1, 1]
+4.6802 	EXP 	window1: color = [1, 1, 1]
+4.7485 	WARNING 	t of last frame was 35.49ms (=1/28)
+4.9980 	EXP 	window1: color = [0, 0, 0]
+5.0235 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=array([1., 1., 1.]), text='respond if there was a figure', units='deg', win=Window(...), wrapWidth=15.0)
+5.0313 	WARNING 	t of last frame was 33.96ms (=1/29)
+13.6956 	DATA 	Keypress: space
+13.7153 	WARNING 	t of last frame was 8683.97ms (=1/0)
+13.8334 	WARNING 	Multiple dropped frames have occurred - I'll stop bothering you about them!
+14.0043 	EXP 	window1: color = [0, 0, 0]
+14.0093 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=array([1., 1., 1.]), text='respond if there was a figure', units='deg', win=Window(...), wrapWidth=15.0)
+16.2076 	DATA 	Keypress: space
+16.2161 	EXP 	window1: color = [0, 0, 0]
+16.2209 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=array([1., 1., 1.]), text='respond if there was a figure', units='deg', win=Window(...), wrapWidth=15.0)
+16.8476 	DATA 	Keypress: space
+16.8661 	EXP 	window1: color = [0, 0, 0]
+16.8709 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=array([1., 1., 1.]), text='respond if there was a figure', units='deg', win=Window(...), wrapWidth=15.0)
+17.2716 	DATA 	Keypress: space
+17.2823 	EXP 	window1: color = [1, 1, 1]
+17.5863 	EXP 	window1: color = [0, 0, 0]
+17.5940 	EXP 	Created unnamed TextStim = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, languageStyle='LTR', name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=array([1., 1., 1.]), text='respond if there was a figure', units='deg', win=Window(...), wrapWidth=15.0)
+20.8315 	DATA 	Keypress: q
+21.5117 	DATA 	Keypress: q
+24.4876 	DATA 	Keypress: space
+24.5986 	EXP 	window1: mouseVisible = True
