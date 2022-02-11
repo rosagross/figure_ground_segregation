@@ -69,7 +69,7 @@ class FigureGroundSession(PylinkEyetrackerSession):
         figure_locations_list = np.repeat([0,1], self.nr_of_trials*len(self.line_lengths)/2)
         # create array with all line orientations for the background
         line_orientations_list = np.repeat(self.line_orientations, self.nr_of_trials*len(self.line_lengths)/len(self.line_orientations))
-        
+        previous_orientation = 0
         for trial_nr in range(len(line_length_list)):
 
             # randomly draw (we do this by first shuffeling and then picking the first element) line_length 
@@ -83,9 +83,15 @@ class FigureGroundSession(PylinkEyetrackerSession):
             figure_location = 'right' if figure_location_ID == 0 else 'left'
             figure_locations_list = figure_locations_list[1:]
 
-            # randomly set the line orientation for the background (it's either 45° or 135°)
-            np.random.shuffle(line_orientations_list)
-            line_orientation_ground = line_orientations_list[0]
+            # randomly set the line orientation for the background (it's either 22.58, 67.58, 112.58, or 157.58)
+            # check if the orientation was like this before already, then shuffle again!
+            while True:
+                np.random.shuffle(line_orientations_list)
+                line_orientation_ground = line_orientations_list[0]
+                if previous_orientation!=line_orientation_ground:
+                    break
+    
+            previous_orientation = line_orientation_ground 
             line_orientations_list = line_orientations_list[1:]
 
             # determine if the figure is visible in this trial

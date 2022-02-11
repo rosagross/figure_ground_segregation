@@ -24,7 +24,7 @@ Task settings:
     Stimulus duration: 0.3 # time in s in which the figure stimulus is presented
     Response window: 1.2 # or 2.2? time in s 
     Line lengths : [2, 4, 8, 10, 14, 16]
-    Line orientations : [45, 135] # possible orientation in degrees
+    Line orientations : [22.58, 67.58, 112.58, 157.58] # possible orientation in degrees
     Number of trials : 10 # this is per condition (per line length)
     Break duration: 3 # duration in s, TODO: NOT SURE IF WE WILL HAVE BREAKS
     Stimulus path: './stimuli/'
