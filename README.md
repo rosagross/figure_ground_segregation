@@ -20,7 +20,7 @@ FORMAT of stimulus folder. The program loads the stimuli images by assuming a ce
 - This is the structure: ```L{line_length}w{width}s{line_spacing}n{position_noise}_ori{line_orientation_ground}_loc{figure_location_ID}_rep{repetition}.bmp```
 The parameters within the curly brackets can be specified in the settings file. The figure location ID is a number that specifies if the figure is present, and if so, specifying the position. Only left or right is possible. Furthermore, 'a' stands for a real figure and 'b'stands for a boarder figure. Thus, ```Right figure == 1a```, ```Right boarder figure == 1b```. ```Left figure == 2a``` and ```Left boarder figure == 2b```! 
 
-<br>
+
 ## Code Structure
 - ```main.py``` creates the session object.
 - ```session.py``` creates the trials and blocks of the exeriment. Creates the stimuli, executes the trials end draws the stimuli.
