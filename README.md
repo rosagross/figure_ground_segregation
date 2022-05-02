@@ -16,8 +16,11 @@ The boolean operator in the end indicates if we want to run it in connection wit
 <br>
 Please check the ```settings.yml``` file for experiment settings that can be changed. Enter in the file what hand your subject is going to use! If you want to test if the eyetracker captures the gaze correctly, set ```Test eyetracker``` to ```True```. It is important to insert the correct refreshrate of the monitor, because it is used to calculate the transition speed.
 <br>
-FORMAT of stimulus folder. The program loads the stimuli images by assuming a certain naming convention. 
+**Format of stimulus folder**
+The program loads the stimuli images by assuming a certain naming convention. 
 - This is the structure: ```L{line_length}w{width}s{line_spacing}n{position_noise}_ori{line_orientation_ground}_loc{figure_location_ID}_rep{repetition}.bmp```
+
+<br>
 The parameters within the curly brackets can be specified in the settings file. The figure location ID is a number that specifies if the figure is present, and if so, specifying the position. Only left or right is possible. Furthermore, 'a' stands for a real figure and 'b'stands for a boarder figure. Thus, ```Right figure == 1a```, ```Right boarder figure == 1b```. ```Left figure == 2a``` and ```Left boarder figure == 2b```! 
 
 
@@ -29,7 +32,7 @@ The parameters within the curly brackets can be specified in the settings file. 
 
 
 ## Trial Procedure
-
+Example (timing can be changed in setting file): 
 1. 300 ms mid grey, red fix dot
 2. 100 ms line stimulus, red fix dot
 3. 1200-1600 ms mid grey, green fix dot
@@ -51,8 +54,4 @@ The parameters within the curly brackets can be specified in the settings file. 
 
 - use os.path.join( for path loading!!!
 - Add question about task difficulty in the end of each trial!
-- Check the timin when waiting arbitrarily long after a break
-- Should the phase end as soon as the participant responded?
-- Should all responses be taken into account? even though they are outside of the response window?
-- what should happen when the number of trials cannot be equally distributed on figures and non figure stimuli?
-- same for the blocks.. currently one of the blocks has a couple of trials more, but number of trials conditions per condition is the same within each block
+- scurrently one of the blocks has a couple of trials more, but number of trials conditions per condition is the same within each block
