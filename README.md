@@ -16,8 +16,9 @@ The boolean operator in the end indicates if we want to run it in connection wit
 <br>
 Please check the ```settings.yml``` file for experiment settings that can be changed. Enter in the file what hand your subject is going to use! If you want to test if the eyetracker captures the gaze correctly, set ```Test eyetracker``` to ```True```. It is important to insert the correct refreshrate of the monitor, because it is used to calculate the transition speed.
 <br>
+
 **Format of stimulus folder**
-<br>
+
 The program loads the stimuli images by assuming a certain naming convention. 
 - This is the structure: ```L{line_length}w{width}s{line_spacing}n{position_noise}_ori{line_orientation_ground}_loc{figure_location_ID}_rep{repetition}.bmp```
 
