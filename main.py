@@ -20,10 +20,10 @@ def main():
     sess = sys.argv[2] # so for example if something went wrong and we wanna to the experiment again, increase session number when starting
 
     subject_ID = int(re.findall(r'(?<=-)\d+', subject)[0])
-    output_str = subject + '_' + sess + '_figure_ground'
+    output_str = subject + '_' + sess
     output_dir = './output_data/'+output_str+'_Logs_figure_ground'
-    settings_file = './settings.yml'
-    eyetracker_on = False
+    settings_file = './settings_difficult.yml'
+    eyetracker_on = True if sys.argv[3] == "True" else False
 
     if not os.path.exists('./output_data'):
         os.mkdir('./output_data')
