@@ -75,6 +75,9 @@ class FGSegTrial(Trial):
                     self.session.win.saveMovieFrames(opj(self.session.screen_dir, self.session.output_str+'_Screenshot.png'))
                 self.session.close()
                 self.session.quit()
+            elif (thisKey=='s') & (self.session.settings['Task settings']['Screenshot']==True):
+                self.session.win.getMovieFrame()
+                self.session.win.saveMovieFrames(opj(self.session.screen_dir, self.session.output_str+f'_Screenshot_{self.figure_location_ID}.png'))
             else:
                 print(thisKey.name, thisKey.tDown, thisKey.rt)
                 t = thisKey.rt

@@ -65,6 +65,10 @@ class FigureGroundSession(PylinkEyetrackerSession):
         self.monitor_refreshrate = self.settings['Task settings']['Monitor refreshrate']
         self.load_background_stimuli = self.settings['Task settings']['Load background stimuli']
 
+        if self.settings['Task settings']['Screenshot']==True:
+            self.screen_dir=output_dir+'/'+output_str+'_Screenshots'
+            if not os.path.exists(self.screen_dir):
+                os.mkdir(self.screen_dir)
 
         # check if the trial separation (in the different locations, no figure, boarder figure,...) add up to 1
         all_location_check = self.trial_boarder_figure + self.trial_figure + self.trial_no_figure
