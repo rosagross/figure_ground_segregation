@@ -64,6 +64,9 @@ class FigureGroundSession(PylinkEyetrackerSession):
         self.exit_key = self.settings['Task settings']['Exit key']
         self.monitor_refreshrate = self.settings['Task settings']['Monitor refreshrate']
         self.load_background_stimuli = self.settings['Task settings']['Load background stimuli']
+        self.grey_value = self.settings['Task settings']['Grey value']
+        self.red_value = self.settings['Task settings']['Red value']
+        self.green_value = self.settings['Task settings']['Green value']
 
         if self.settings['Task settings']['Screenshot']==True:
             self.screen_dir=output_dir+'/'+output_str+'_Screenshots'
@@ -174,7 +177,7 @@ class FigureGroundSession(PylinkEyetrackerSession):
         self.add_button_check()
 
         # only a 'please wait' and blank screen to get ready for the real block 
-        pre_trial = FGSegTrial(self, 0, 0, [0, int(self.break_duration*self.monitor_refreshrate), int(self.after_break*self.monitor_refreshrate), 0, 0, 0], self.phase_names_break, 'break', -1, 'break', 0, 0, 0, 0, 0, 0, 'frames')
+        pre_trial = FGSegTrial(self, 0, 0, [0, 0, int(self.after_break*self.monitor_refreshrate), 0, 0, 0], self.phase_names_break, 'break', -1, 'break', 0, 0, 0, 0, 0, 0, 'frames')
         self.trial_list.append(pre_trial)
 
         for i in range(self.nr_blocks):
@@ -281,7 +284,7 @@ class FigureGroundSession(PylinkEyetrackerSession):
                 self.add_button_check()
 
                 # only a 'please wait' and blank screen to get ready for the real block 
-                pre_trial = FGSegTrial(self, 0, 0, [0, int(self.break_duration*self.monitor_refreshrate), int(self.after_break*self.monitor_refreshrate), 0, 0, 0], self.phase_names_break, 'break', -1, 'break', 0, 0, 0, 0, 0, 0, 'frames')
+                pre_trial = FGSegTrial(self, 0, 0, [0, 0, int(self.after_break*self.monitor_refreshrate), 0, 0, 0], self.phase_names_break, 'break', -1, 'break', 0, 0, 0, 0, 0, 0, 'frames')
                 self.trial_list.append(pre_trial)
 
     def create_stimuli(self):
@@ -289,11 +292,11 @@ class FigureGroundSession(PylinkEyetrackerSession):
         # fixation dot in red (for the first two phases of the trial)
         self.fixation_dot_red = visual.Circle(self.win, 
             radius=0.2/2, 
-            units='deg', lineColor='red', fillColor='red')
+            units='deg', colorSpace='rgb255', lineColor=self.red_value, fillColor=self.red_value)
 
         self.fixation_dot_green = visual.Circle(self.win, 
             radius=0.2/2, 
-            units='deg', lineColor='green', fillColor='green')
+            units='deg', colorSpace='rgb255', lineColor=self.green_value, fillColor=self.green_value)
 
         self.break_stim = visual.TextStim(self.win, text="Break")
         self.button_check_stim = visual.TextStim(self.win, text="Button check - Please wait")
@@ -303,24 +306,36 @@ class FigureGroundSession(PylinkEyetrackerSession):
         self.check_no_stimulus = visual.ImageStim(self.win, units='deg', image=image_path+'0'+'.bmp', size=self.stim_size)
 
         # create black background and homogeneous grey stimulus 
-        self.homogen_grey = visual.Rect(self.win, units='deg', colorSpace='rgb255', size=self.stim_size, fillColor=[162,162,162], lineColor=[162,162,162])
+        self.homogen_grey = visual.Rect(self.win, units='deg', colorSpace='rgb255', size=self.stim_size, fillColor=self.grey_value, lineColor=self.grey_value)
 
 
     def add_button_check(self):
         """
-        This adds two trials that is used to check which buttons the participant uses. 
+        This adds two trials that are used to check which buttons the participant uses. 
         Helps us later in the analysis to determine if the participant maybe confused the buttons.
         """
         
         # start off with a check for each the yes and the no button
         # randomly determine figure location for the yes check
         figure_location = 'break'
+
         if random.uniform(1,100) < 50:
-            figure_location_ID = '2'
-            figure_location = 'yes_figure_left' 
+            start_yes = True        
+            if random.uniform(1,100) < 50:
+                figure_location_ID = '2'
+                figure_location = 'yes_figure_left' 
+            else:
+                figure_location_ID = '1'
+                figure_location = 'yes_figure_right' 
         else:
-            figure_location_ID = '1'
-            figure_location = 'yes_figure_right' 
+            start_yes = False
+            figure_location_ID = '0'
+            if random.uniform(1,100) < 50:
+                figure_location = 'yes_figure_left' 
+            else:
+                figure_location = 'yes_figure_right' 
+
+
 
         # append a short waiting period in which there is only a blank screen to get ready
         button_check_trial = FGSegTrial(self, 0, 0, self.phase_duration_button_check, self.phase_names_break, 'break', figure_location_ID, figure_location, 0, 0, 0, 0, 0, 0, 'frames')
@@ -352,13 +367,21 @@ class FigureGroundSession(PylinkEyetrackerSession):
                 # draw the stimulus with figure to check the yes response
                 if self.current_trial.figure_location_ID == '2':
                     self.check_yes_stimulus_left.draw()
-                else:
+                elif self.current_trial.figure_location_ID == '1':
                     self.check_yes_stimulus_right.draw()
+                elif self.current_trial.figure_location_ID == '0':
+                    self.check_no_stimulus.draw()
                 self.fixation_dot_red.draw()
             # CHECK NO
             elif phase == 5:
-                # draw the stimulus without figure to check the no response
-                self.check_no_stimulus.draw()
+                # draw the stimulus that has not been drawn in the first button check
+                if self.current_trial.figure_location_ID in ['1', '2']:
+                    self.check_no_stimulus.draw()
+                elif self.current_trial.figure_location_ID == '0':
+                    if self.current_trial.figure_location == 'yes_figure_left':
+                        self.check_yes_stimulus_left.draw()
+                    elif self.current_trial.figure_location == 'yes_figure_right':
+                        self.check_yes_stimulus_right.draw()
                 self.fixation_dot_red.draw()
                 
         else:

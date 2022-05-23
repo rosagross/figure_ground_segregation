@@ -31,7 +31,7 @@ Task settings:
     Line spacing : [3.82, 3.98, 4.14, 4.3, 4.46, 4.62, 4.78] # [5, 5, 5.5, 6, 6.25, 6.5, 6.8]
     Position noise : [4, 4, 4, 4, 4, 4, 4, 4] # [5, 8, 7, 6, 7, 7, 7]
     Stimulus size : 15.951 # in degrees 
-    Number of trials : 100 # this is per condition (per line length)
+    Number of trials : 10 # this is per condition (per line length)
     No figure trials : 0.15 # the amount of trial without figure (percentage, must be float)
     Figure trials : 0.7 # together with no figure and boarder only trials must sum up to 1
     Boarder figure trials : 0.15
@@ -47,3 +47,6 @@ Task settings:
     Exit key: 'q'
     Monitor refreshrate: 120 # in Hz (check readme for explaination)
     Load background stimuli: False
+    Grey value: [162, 162, 162]
+    Red value: [255, 135, 255]
+    Green value: [255, 147, 0]
