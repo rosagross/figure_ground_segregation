@@ -48,5 +48,5 @@ Task settings:
     Monitor refreshrate: 120 # in Hz (check readme for explaination)
     Load background stimuli: False
     Grey value: [162, 162, 162]
-    Red value: [255, 135, 255]
+    Red value: [255, 112, 255]
     Green value: [255, 147, 0]
