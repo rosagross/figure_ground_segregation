@@ -21,7 +21,7 @@ def main():
 
     subject_ID = int(re.findall(r'(?<=-)\d+', subject)[0])
     output_str = subject + '_' + sess
-    output_dir = './output_data/'+output_str+'_Logs_figure_ground'
+    output_dir = './output_data/'+output_str+'_Logs_FG'
     settings_file = './settings_difficult.yml'
     eyetracker_on = True if sys.argv[3] == "True" else False
 
