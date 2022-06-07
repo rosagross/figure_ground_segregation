@@ -166,7 +166,7 @@ class FigureGroundSession(PylinkEyetrackerSession):
         self.phase_names = ["fixation", "stimulus", "response_window"]
         self.phase_duration_button_check = [0, int(self.break_duration*self.monitor_refreshrate), int(self.after_break*self.monitor_refreshrate), int(self.test_stimulus_duration*self.monitor_refreshrate), 
         int(self.after_break*self.monitor_refreshrate), int(self.test_stimulus_duration*self.monitor_refreshrate)]
-        self.phase_names_break =  ['break', 'button_check', 'after_break', 'check_yes', 'check_break', 'check_no']
+        self.phase_names_break =  ['break', 'button_check', 'after_break', 'check_first', 'check_break', 'check_second']
 
         # depending on how many breaks the experiement has, the conditions are spread over the blocks equally
         append_rest = random.randint(0,2)
