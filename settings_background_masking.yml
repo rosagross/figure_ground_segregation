@@ -14,18 +14,16 @@ window:
 
 monitor:
     name: default
-    width: 60  # in cm
-    distance: 172.06  # in cm
+    width: 20  # in cm
+    distance: 20 #  172.06  # in cm
     gamma: 1
 
 operating system: linux
 
 Task settings: 
-    Fixation duration: 0 # time in s in which the fixation dot is presented
-    Fixation ready duration: 0.4 # be ready for the stimulus to come
+    Fixation ready duration: 0.4 # be ready for the stimulus to come (shows red dot)
     Stimulus duration: 0.1 # time in s in which the figure stimulus is presented
     Response window: [1.2, 1.6] # duration, drawn randomly in this range
-    Buttons: ['4', '2'] # first is lower second is upper
     Break buttons : ['b'] # what button to press to continue the experiment after a break
     Line lengths : [8, 9, 10, 11, 12, 13, 14] # [4, 4, 4, 4, 4, 4, 4] # [6, 7, 8, 9, 10, 11, 12]
     Line widths : [4, 4, 4, 4, 4, 4, 4] # [2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6] # [3, 3, 3, 3, 3, 3, 3]
@@ -33,7 +31,7 @@ Task settings:
     Line spacing :  [6.7491, 7.0707, 7.3922, 7.7138, 8.0353, 8.3569, 8.6784] # [3.82, 3.98, 4.14, 4.3, 4.46, 4.62, 4.78] # [5, 5, 5.5, 6, 6.25, 6.5, 6.8]
     Position noise : [6.7491, 7.0707, 7.3922, 7.7138, 8.0353, 8.3569, 8.6784] # [4, 4, 4, 4, 4, 4, 4, 4] # [5, 8, 7, 6, 7, 7, 7]
     Stimulus size : 15.951 # in degrees 
-    Number of trials : 20 # this is per condition (per line length)
+    Number of trials : 10 # this is per condition (per line length)
     No figure trials : 0.15 # the amount of trial without figure (percentage, must be float)
     Figure trials : 0.7 # together with no figure and boarder only trials must sum up to 1
     Boarder figure trials : 0.15
@@ -42,6 +40,10 @@ Task settings:
     Break duration: 1000 # duration in s (extremely long so that the participant can decide him/herself when to continue by pressing button)
     After break duration: 1 # this is so that the participant can get ready before the trial continues
     Stimulus path:  './stimuli/figs_pilot_3_masking_midgrey_161/' # './stimuli/figs_pilot_3'
+    Test stimulus path: 'easy_response_test_stimuli/' # this is relative to the stimulus folder meaning this folder has to be in the stimulus folder above
+    Test stimulus file: 'L18w4x12y12_r12_4_' # the beginning of the file name for easy figure and easy no figure stimulus 
+    Test stimulus duration: 2 # how long you see the stimulus that checks for the key presses (in s)
     Screenshot: False # makes a screenshot when aborting experiment
     Exit key: 'q'
     Monitor refreshrate: 60 # in Hz (check readme for explaination)
+    Load background stimuli: True

@@ -11,7 +11,7 @@ import sys
 import os
 import re
 from datetime import datetime
-from session import FigureGroundSession
+from session_seconds import FigureGroundSession
 datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 

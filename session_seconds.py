@@ -6,6 +6,7 @@
 @contact :   grossmann.rc@gmail.com
 '''
 
+from urllib import response
 import numpy as np
 from psychopy.hardware import keyboard
 import os
@@ -161,11 +162,9 @@ class FigureGroundSession(PylinkEyetrackerSession):
             all_figure_locations.append(figure_locations_list)
 
         # get the phase durations and names for every trial
-        self.phase_duration = [int(self.fixation_ready_duration*self.monitor_refreshrate), int(self.stimulus_duration*self.monitor_refreshrate),
-                          int(random.uniform(self.response_window_duration[0], self.response_window_duration[1])*self.monitor_refreshrate)]
+        self.phase_duration = [self.fixation_ready_duration, self.stimulus_duration]
         self.phase_names = ["fixation", "stimulus", "response_window"]
-        self.phase_duration_button_check = [0, int(self.break_duration*self.monitor_refreshrate), int(self.after_break*self.monitor_refreshrate), int(self.test_stimulus_duration*self.monitor_refreshrate), 
-        int(self.after_break*self.monitor_refreshrate), int(self.test_stimulus_duration*self.monitor_refreshrate)]
+        self.phase_duration_button_check = [0, self.break_duration, self.after_break, self.test_stimulus_duration, self.after_break, self.test_stimulus_duration]
         self.phase_names_break =  ['break', 'button_check', 'after_break', 'check_first', 'check_break', 'check_second']
 
         # depending on how many breaks the experiement has, the conditions are spread over the blocks equally
@@ -177,7 +176,7 @@ class FigureGroundSession(PylinkEyetrackerSession):
         self.add_button_check()
 
         # only a 'please wait' and blank screen to get ready for the real block 
-        pre_trial = FGSegTrial(self, 0, 0, [0, 0, int(self.after_break*self.monitor_refreshrate), 0, 0, 0], self.phase_names_break, 'break', -1, 'break', 0, 0, 0, 0, 0, 0, 'frames')
+        pre_trial = FGSegTrial(self, 0, 0, [0, 0, self.after_break, 0, 0, 0], self.phase_names_break, 'break', -1, 'break', 0, 0, 0, 0, 0, 0, 'seconds')
         self.trial_list.append(pre_trial)
 
         for i in range(self.nr_blocks):
@@ -268,9 +267,11 @@ class FigureGroundSession(PylinkEyetrackerSession):
                         self.background_list.append(background_stimulus)
                 
                 trial_count += 1
-                trial = FGSegTrial(self, trial_count, i, self.phase_duration, self.phase_names, line_length,
+                response_window = random.uniform(self.response_window_duration[0], self.response_window_duration[1])
+                trial_phase_duration = self.phase_duration + [response_window]
+                trial = FGSegTrial(self, trial_count, i, trial_phase_duration, self.phase_names, line_length,
                                     figure_location_ID, figure_location, repetition, line_orientation_ground,
-                                    position_noise, line_spacing, width, self.phase_duration[-1], 'frames')
+                                    position_noise, line_spacing, width, response_window, 'seconds')
                                     
                 self.trial_list.append(trial)
 
@@ -279,12 +280,12 @@ class FigureGroundSession(PylinkEyetrackerSession):
                 
                 self.add_button_check()
                 # break 
-                break_trial = FGSegTrial(self, 0, i, [int(self.break_duration*self.monitor_refreshrate), 0, 0, 0, 0, 0], self.phase_names_break, 'break', -1, 'break', 0, 0, 0, 0, 0, 0, 'frames')
+                break_trial = FGSegTrial(self, 0, i, [self.break_duration, 0, 0, 0, 0, 0], self.phase_names_break, 'break', -1, 'break', 0, 0, 0, 0, 0, 0, 'seconds')
                 self.trial_list.append(break_trial)
                 self.add_button_check()
 
                 # only a 'please wait' and blank screen to get ready for the real block 
-                pre_trial = FGSegTrial(self, 0, 0, [0, 0, int(self.after_break*self.monitor_refreshrate), 0, 0, 0], self.phase_names_break, 'break', -1, 'break', 0, 0, 0, 0, 0, 0, 'frames')
+                pre_trial = FGSegTrial(self, 0, 0, [0, 0, self.after_break, 0, 0, 0], self.phase_names_break, 'break', -1, 'break', 0, 0, 0, 0, 0, 0, 'seconds')
                 self.trial_list.append(pre_trial)
 
     def create_stimuli(self):
@@ -338,7 +339,7 @@ class FigureGroundSession(PylinkEyetrackerSession):
 
 
         # append a short waiting period in which there is only a blank screen to get ready
-        button_check_trial = FGSegTrial(self, 0, 0, self.phase_duration_button_check, self.phase_names_break, 'break', figure_location_ID, figure_location, 0, 0, 0, 0, 0, 0, 'frames')
+        button_check_trial = FGSegTrial(self, 0, 0, self.phase_duration_button_check, self.phase_names_break, 'break', figure_location_ID, figure_location, 0, 0, 0, 0, 0, 0, 'seconds')
         self.trial_list.append(button_check_trial)
 
 
